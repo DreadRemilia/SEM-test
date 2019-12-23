@@ -57,8 +57,10 @@ public class MainActivity extends BaseActivity {
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
                     values.clear();
+                    //判断数据不为空
                     if(!(edit_name.getText().toString().isEmpty() || edit_maxinum.getText().toString().isEmpty()|| edit_number.getText().toString().isEmpty()||
                      edit_reserve.getText().toString().isEmpty() || edit_value.getText().toString().isEmpty())){
+                        //数据插入
                         values.put("name",edit_name.getText().toString());
                         values.put("number",Integer.valueOf(edit_number.getText().toString()));
                         values.put("reserve",Integer.valueOf(edit_reserve.getText().toString()));
@@ -77,6 +79,7 @@ public class MainActivity extends BaseActivity {
                     //
                     break;
                 case R.id.button_select:
+                    //跳转至ShowActivity
                     Intent intent = new Intent(MainActivity.this,ShowActivity.class);
                     startActivity(intent);
                     break;
