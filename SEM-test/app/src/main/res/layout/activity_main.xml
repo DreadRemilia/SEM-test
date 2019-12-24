@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
+    <EditText
+        android:id="@+id/edit_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_info" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="277dp"
@@ -128,20 +142,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/text_info"
+        android:layout_width="332dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="39dp"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="334dp"
-        android:layout_height="107dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="35dp"
+        android:layout_width="258dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="88dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <LinearLayout
-            android:layout_width="171dp"
+            android:layout_width="132dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -149,14 +176,13 @@
                 android:id="@+id/button_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="订货"
-                android:textAlignment="center" />
+                android:text="订货" />
 
             <Button
-                android:id="@+id/button_output"
+                android:id="@+id/button_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="出库" />
+                android:text="入库" />
         </LinearLayout>
 
         <LinearLayout
@@ -165,30 +191,17 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="入库" />
-
-            <Button
                 android:id="@+id/button_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="查看记录" />
+                android:text="查看数据" />
+
+            <Button
+                android:id="@+id/button_output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="出库" />
         </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_info"
-        android:layout_width="333dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="39dp"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 </android.support.constraint.ConstraintLayout>

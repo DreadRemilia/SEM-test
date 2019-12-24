@@ -1,5 +1,6 @@
 package com.example.sem_test.Activity;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -32,7 +35,7 @@ public class ShowActivity extends BaseActivity {
         text_number = this.findViewById(R.id.text_number);
         text_name = this.findViewById(R.id.text_name);
         text_reserve = this.findViewById(R.id.text_reserve);
-        text_value = this.findViewById(R.id.textView);
+        text_value = this.findViewById(R.id.text_value);
         text_maxinum = this.findViewById(R.id.text_maxinum);
 
         /**数据库操作
@@ -59,11 +62,18 @@ public class ShowActivity extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 int index = Integer.valueOf(adapterView.getItemAtPosition(i).toString());
-                for(int j=0;j<list.size();j++){
-                    if(list.get(j) == index){
-                        
+                //根据index显示数据
+                cursor.moveToFirst();
+                do{
+                    if(cursor.getInt(cursor.getColumnIndex("number")) == index){
+                        text_number.setText(cursor.getString(cursor.getColumnIndex("number")));
+                        text_name.setText(cursor.getString(cursor.getColumnIndex("name")));
+                        text_reserve.setText(cursor.getString(cursor.getColumnIndex("reserve")));
+                        text_maxinum.setText(cursor.getString(cursor.getColumnIndex("maxinum")));
+                        text_value.setText(cursor.getString(cursor.getColumnIndex("value")));
+                        break;
                     }
-                }
+                } while(cursor.moveToNext());
             }
 
             @Override
