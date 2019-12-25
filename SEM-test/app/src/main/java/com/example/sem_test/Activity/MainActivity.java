@@ -83,13 +83,16 @@ public class MainActivity extends BaseActivity {
                     startActivity(intent);
                     break;
                 case R.id.button_input:
+                    //select * from goods
                     Cursor cursor = db.query("goods",null,null,null,null,null,null);
-                    cursor.moveToFirst();
+                    cursor.moveToFirst(); // index = 1
                     do{
                         if(cursor.getInt(cursor.getColumnIndex("number")) == Integer.valueOf(edit_number.getText().toString())){
                             values.clear();
                             values.put("reserve",cursor.getInt(cursor.getColumnIndex("reserve")) + Integer.valueOf(edit_done.getText().toString()));
+                            //reserve = reserve + inputReserve
                             db.update("goods",values,"number = ?",new String[]{cursor.getString(cursor.getColumnIndex("number"))});
+                            //if(flag) then fail; else success; endif
                             flag = false;
                             text_info.setText("入库成功！");
                         }
@@ -98,12 +101,14 @@ public class MainActivity extends BaseActivity {
                         text_info.setText("操作出错！");
                     break;
                 case R.id.button_output:
+                    //select * from goods
                     Cursor cursor1 = db.query("goods",null,null,null,null,null,null);
                     cursor1.moveToFirst();
                     do{
                         if(cursor1.getInt(cursor1.getColumnIndex("number")) == Integer.valueOf(edit_number.getText().toString())){
                             values.clear();
                             values.put("reserve",cursor1.getInt(cursor1.getColumnIndex("reserve")) - Integer.valueOf(edit_done.getText().toString()));
+                            //reserve = reserve - inputReserve
                             db.update("goods",values,"number = ?",new String[]{cursor1.getString(cursor1.getColumnIndex("number"))});
                             flag = false;
                             text_info.setText("出库成功！");
